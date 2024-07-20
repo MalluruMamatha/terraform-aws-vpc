@@ -4,6 +4,7 @@ resource "aws_vpc" "main" {
   cidr_block       = var.vpc_cidr
   instance_tenancy = "default"
   enable_dns_hostnames = "true"
+  
 
   tags = merge(
     var.common_tags,
@@ -93,7 +94,7 @@ resource "aws_db_subnet_group" "db_group" {
   name       = "${local.resource_name}"
   subnet_ids = aws_subnet.database[*].id
 
-  tags = merge(
+tags = merge(
     var.common_tags,
     var.database_subnet_group_tags,
     {

@@ -19,11 +19,15 @@ output "private_subnet_ids" {
 output "database_subnet_ids" {
   value = aws_subnet.database[*].id
 }
+
 output "database_subnet_group_id" {
-  value = aws_db_subnet_group.db_group[*].id
+  value = aws_db_subnet_group.db_group.id
+}
+
+output "database_subnet_group_name" {
+  value = aws_db_subnet_group.db_group.name
 }
 
 output "igw_id" {
-    value = aws_internet_gateway.igw.id
-  
+  value = aws_internet_gateway.igw.id
 }
